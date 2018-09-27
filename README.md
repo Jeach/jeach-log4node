@@ -1,4 +1,4 @@
-# jeach-log4node
+# log4node
 
 This is a fork of the [log4js-node](https://github.com/log4js-node/log4js-node) project.
 
