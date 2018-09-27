@@ -141,10 +141,11 @@ The pattern string can contain any characters, but sequences beginning with % wi
   %X{<tokenname>} add values from the Logger context. Tokens are keys into the context values.
   %[ start a coloured block (colour will be taken from the log level, similar to colouredLayout)
   %] end a coloured block
+```  
   
+**Additional date (%d) options are:**
   
-  Additional date (%d) options are:
-  
+```
   ISO8601, ISO8601_WITH_TZ_OFFSET, ABSOLUTE, DATE, or any string compatible 
   with the date-format library. e.g. %d{DATE}, %d{yyyy/MM/dd-hh.mm.ss}
 ```
