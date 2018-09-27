@@ -2,7 +2,7 @@
 
 This is a fork of the [log4js-node](https://github.com/log4js-node/log4js-node) project.
 
-I'm not trying to compete with this library going forward or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. The real reason I forked it is because I believe that method and line number tracking in log prints are crucial. I can't figure out why they have yet support for it, but they don't. So I decided to simply add it and make it public for anyone that requires the same.
+I'm not trying to compete with the original library or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. The real reason I forked it is because I believe that method and line number tracking in log prints are crucial. I can't figure out why they have yet support for it, but they don't. So I decided to simply add it and make it public for anyone that requires the same.
 
 So now, if you want to use the following pattern:
 
