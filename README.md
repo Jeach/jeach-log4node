@@ -47,7 +47,8 @@ Next, on line 144, I added the **getTrace(caller)** and **prepareStackTrace(erro
   }
 
   function prepareStackTrace(error, structuredStackTrace) {
-    const MAGIC_OFFSET = 14;  // As long as the log4js library call stack doesn't change, this constant should work.
+    // As long as the log4js library call stack doesn't change, this constant should work.
+    const MAGIC_OFFSET = 14;
     var trace = structuredStackTrace[MAGIC_OFFSET];
    
     return {
@@ -132,7 +133,7 @@ The pattern string can contain any characters, but sequences beginning with % wi
   %c log category
   %h hostname
   %m log data
-  %d date, formatted - default is ISO8601, format options are: ISO8601, ISO8601_WITH_TZ_OFFSET, ABSOLUTE, DATE, or any string compatible with the date-format library. e.g. %d{DATE}, %d{yyyy/MM/dd-hh.mm.ss}
+  %d date, formatted - default is ISO8601, format
   %% % - for when you want a literal % in your output
   %n newline
   %z process id (from process.pid)
@@ -140,4 +141,10 @@ The pattern string can contain any characters, but sequences beginning with % wi
   %X{<tokenname>} add values from the Logger context. Tokens are keys into the context values.
   %[ start a coloured block (colour will be taken from the log level, similar to colouredLayout)
   %] end a coloured block
+  
+  
+  Additional date (%d) options are:
+  
+  ISO8601, ISO8601_WITH_TZ_OFFSET, ABSOLUTE, DATE, or any string compatible 
+  with the date-format library. e.g. %d{DATE}, %d{yyyy/MM/dd-hh.mm.ss}
 ```
