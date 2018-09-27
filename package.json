@@ -1,28 +1,31 @@
 {
-  "name": "log4js",
-  "version": "3.0.5",
-  "description": "Port of Log4js to work with node.",
-  "homepage": "https://log4js-node.github.io/log4js-node/",
+  "name": "jeach-log4node",
+  "version": "1.0.0",
+  "description": "Fork of the log4js-node with small changes.",
+  "homepage": "https://github.com/Jeach/jeach-log4node",
   "files": [
     "lib",
     "types"
   ],
   "keywords": [
-    "logging",
-    "log",
+    "jeach",
+    "jeach-log4node",
     "log4j",
+    "log4js-node",
+    "log",
+    "logging",
     "node"
   ],
   "license": "Apache-2.0",
   "main": "./lib/log4js",
   "types": "./types/log4js.d.ts",
-  "author": "Gareth Jones <gareth.nomiddlename@gmail.com>",
+  "author": "Christian Jean <christian.jean@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/log4js-node/log4js-node.git"
+    "url": "https://github.com/Jeach/jeach-log4node.git"
   },
   "bugs": {
-    "url": "http://github.com/log4js-node/log4js-node/issues"
+    "url": "http://github.com/Jeach/jeach-log4node/issues"
   },
   "engines": {
     "node": ">=6.0"
