@@ -2,7 +2,9 @@
 
 This is a fork of the [log4js-node](https://github.com/log4js-node/log4js-node) project.
 
-I'm not trying to compete with the original library or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. The real reason I forked it is because I believe that method and line number tracking in log prints are crucial. I can't figure out why they have yet support for it, but they don't. So I decided to simply add it and make it public for anyone that requires the same.
+I'm not trying to compete with the original library or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. 
+
+The reason I forked it is because I believe that **method** and **line number** information in your logs are crucial. I can't figure out why they have yet to provide support out-of-the-box for it? But they don't. So I decided to simply add it myself and make it public for anyone that requires the same functionality.
 
 So now, if you want to use the following pattern:
 
@@ -13,7 +15,7 @@ So now, if you want to use the following pattern:
   }
 ```
 
-It will provide logs as follows:
+Notice the `%M` and `%L`? This will provide logs similar to:
 
 ```
 [2018-09-27T02:55:04.618][DEBUG][jeach-abc][methodThree(7)]> Lorem ipsum dolor sit amet ...
