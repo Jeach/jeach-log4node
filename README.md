@@ -2,7 +2,9 @@
 
 This is a fork of the [log4js-node](https://github.com/log4js-node/log4js-node) project.
 
-I'm not trying to compete with the original library or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. The real reason I forked it is because I believe that method and line number tracking in log prints are crucial. I can't figure out why they have yet support for it, but they don't. So I decided to simply add it and make it public for anyone that requires the same.
+I'm not trying to compete with the original library or anything like that. I just thought it was the closest thing to Log4J which I am accustomed to. 
+
+The reason I forked it is because I believe that **method** and **line number** information in your logs are crucial. I can't figure out why they have yet to provide support out-of-the-box for it? But they don't. So I decided to simply add it myself and make it public for anyone that requires the same functionality.
 
 So now, if you want to use the following pattern:
 
@@ -13,7 +15,7 @@ So now, if you want to use the following pattern:
   }
 ```
 
-It will provide logs as follows:
+Notice the `%M` and `%L`? This will provide logs similar to:
 
 ```
 [2018-09-27T02:55:04.618][DEBUG][jeach-abc][methodThree(7)]> Lorem ipsum dolor sit amet ...
@@ -47,7 +49,8 @@ Next, on line 144, I added the **getTrace(caller)** and **prepareStackTrace(erro
   }
 
   function prepareStackTrace(error, structuredStackTrace) {
-    const MAGIC_OFFSET = 14;  // As long as the log4js library call stack doesn't change, this constant should work.
+    // As long as the log4js library call stack doesn't change, this constant should work.
+    const MAGIC_OFFSET = 14;
     var trace = structuredStackTrace[MAGIC_OFFSET];
    
     return {
@@ -95,4 +98,56 @@ It is essentially an offset into the stack trace. When I first altered the `log4
 
 That's about it ... now I don't depend on another library on what I considered important. 
 
-I also intend to add a few additional features in order to easily change the log level for any of my modules from a single config file and not within the modules as they recommend.
+## Logging Levels
+
+```
+  ALL
+  TRACE
+  DEBUG
+  INFO
+  WARN
+  ERROR
+  FATAL
+  MARK
+  OFF
+```    
+
+## Pattern format
+
+
+The pattern string can contain any characters, but sequences beginning with % will be replaced with values taken from the log event, and other environmental values. Format for specifiers is %[padding].[truncation][field]{[format]} - padding and truncation are optional, and format only applies to a few tokens (notably, date). e.g. %5.10p - left pad the log level by 5 characters, up to a max of 10
+    
+### Examples:
+    
+```    
+  [%p]     --> [DEBUG]
+  [%3.3p]  --> [DEB]
+  [%1.1p]  --> [D]
+```
+
+### Fields can be any of:
+
+```
+  %M method name
+  %L line number
+  %r time in toLocaleTimeString format
+  %p log level
+  %c log category
+  %h hostname
+  %m log data
+  %d date, formatted - default is ISO8601, format
+  %% % - for when you want a literal % in your output
+  %n newline
+  %z process id (from process.pid)
+  %x{<tokenname>} add dynamic tokens to your log. Tokens are specified in the tokens parameter.
+  %X{<tokenname>} add values from the Logger context. Tokens are keys into the context values.
+  %[ start a coloured block (colour will be taken from the log level, similar to colouredLayout)
+  %] end a coloured block
+```  
+  
+**Additional date (%d) options are:**
+  
+```
+  ISO8601, ISO8601_WITH_TZ_OFFSET, ABSOLUTE, DATE, or any string compatible 
+  with the date-format library. e.g. %d{DATE}, %d{yyyy/MM/dd-hh.mm.ss}
+```
