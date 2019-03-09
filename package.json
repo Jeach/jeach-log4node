@@ -1,6 +1,6 @@
 {
   "name": "jeach-log4node",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Fork of the log4js-node with small changes.",
   "homepage": "https://github.com/Jeach/jeach-log4node",
   "files": [
