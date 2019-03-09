@@ -178,7 +178,7 @@ The above would return:
 
 ```
 Level    : DEBUG
-Value    : 5000
+Value    : 10000
 isAll    : false
 isTrace  : false
 isDebug  : true
