@@ -151,3 +151,38 @@ The pattern string can contain any characters, but sequences beginning with % wi
   ISO8601, ISO8601_WITH_TZ_OFFSET, ABSOLUTE, DATE, or any string compatible 
   with the date-format library. e.g. %d{DATE}, %d{yyyy/MM/dd-hh.mm.ss}
 ```
+
+## Updates
+
+As of version 2.0.1, you can now use the follwoing functions in order to determine your log level:
+
+```
+const log = package.getLogger();
+
+log.level = 'debug';
+
+console.log("Level    : " + log.level);
+
+console.log("isAll    : " + log.isAll());
+console.log("isTrace  : " + log.isTrace());
+console.log("isDebug  : " + log.isDebug());
+console.log("isInfo   : " + log.isInfo());
+console.log("isWarn   : " + log.isWarn());
+console.log("isError  : " + log.isError());
+console.log("isFatal  : " + log.isFatal());
+console.log("isMark   : " + log.isMark());
+```
+
+The above would return:
+
+```
+Level    : DEBUG
+isAll    : false
+isTrace  : false
+isDebug  : true
+isInfo   : false
+isWarn   : false
+isError  : false
+isFatal  : false
+isMark   : false
+```
