@@ -162,6 +162,7 @@ const log = package.getLogger();
 log.level = 'debug';
 
 console.log("Level    : " + log.level);
+console.log("Value    : " + log.level.level);
 
 console.log("isAll    : " + log.isAll());
 console.log("isTrace  : " + log.isTrace());
@@ -177,6 +178,7 @@ The above would return:
 
 ```
 Level    : DEBUG
+Value    : 5000
 isAll    : false
 isTrace  : false
 isDebug  : true
