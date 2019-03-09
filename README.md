@@ -154,7 +154,7 @@ The pattern string can contain any characters, but sequences beginning with % wi
 
 ## Updates
 
-As of version 2.0.1, you can now use the follwoing functions in order to determine your log level:
+As of version **2.0.1**, you can now use the follwoing functions in order to determine your log level:
 
 ```
 const log = package.getLogger();
